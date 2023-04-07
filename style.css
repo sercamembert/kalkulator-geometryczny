@@ -76,6 +76,8 @@ body{
 .side-container__results{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
 }
 .result{
@@ -87,8 +89,7 @@ body{
     background-color: black;
     color: white;
     border: none;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 100px;
     height: 40px;
     font-family: 'Secular One', sans-serif;
     transition: .3s;

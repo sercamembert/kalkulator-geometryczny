@@ -8,20 +8,31 @@ const wysokosc  = document.getElementById('wysokosc')
 const wysokoscText  = document.getElementById('wysokoscText')
 const pole  = document.getElementById('pole')
 
+const clearValues = ()=>{
+    const bokA = document.getElementById('side1').value = ""
+    const bokB = document.getElementById('side2').value = ""
+    wysokosc.value = ""
+    pole.innerHTML = ''
+    objetosc.innerHTML = ''
+}
+
 //Prostokąt
 radio[0].addEventListener('change',()=>{
     classAdd(wysokosc,'none')
     classAdd(wysokoscText,'none')
+    clearValues()
 })
 //Prostopadłościan
 radio[1].addEventListener('change',()=>{
     classRemove(wysokosc,'none')
     classRemove(wysokoscText,'none')
+    clearValues()
 })
 //Ostrosłup
 radio[2].addEventListener('change',()=>{
     classRemove(wysokosc,'none')
     classRemove(wysokoscText,'none')
+    clearValues()
 })
 
 
