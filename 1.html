@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .legend{
+            text-align: center;
+        }
+        fieldset{
+            width: 100px;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .radio-container{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend class="legend">Wybierz</legend>
+        <div class="radio-container">
+            <input type="radio" name="checkRadio" id="" class="check">   
+            <span>Prostokąt</span>
+        </div>
+        <div class="radio-container">
+            <input type="radio" name="checkRadio" id="" class="check">   
+            <span>Prostopadłościan</span>
+        </div>
+        <div class="radio-container">
+            <input type="radio" name="checkRadio" id="" class="check">   
+            <span>Ostrosłup</span>
+        </div>
+    </fieldset>
+    <div class="side-container">
+        Bok 1: <input type="number" name="" id="side1"><br><br>
+        Bok 2: <input type="number" name="" id="side2"><br><br>
+        Pole: <input type="number" name="" id="pole"><br><br>
+        Objętość: <input type="number" name="" id="objetosc"><br><br>
+        Wysokość: <input type="number" name="" id="wysokosc"><br><br>
+        <input type="button" value="Oblicz" id="oblicz">
+        </div>
+    <script src="index.js"></script>
+</body>
+</html>
