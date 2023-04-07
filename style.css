@@ -93,6 +93,7 @@ body{
     height: 40px;
     font-family: 'Secular One', sans-serif;
     transition: .3s;
+    border: 2px solid black;
 }
 .btn:hover{
     cursor: pointer;
