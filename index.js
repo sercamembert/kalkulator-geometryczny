@@ -1,85 +1,39 @@
-
-class Prostokat{
-    #A = 0;
-    #B = 0;
-
-    get BokA(){
-        return this.#A
-    }
-
-    set BokA(value){
-        this.#A = value;
-    }
-    get BokB(){
-        return this.#B
-    }
-
-    set BokB(value){
-        this.#B = value;
-    }
-
-    obliczPole(){
-        return this.BokA * this.BokB;
-    }
-}
-
-class Prostopadloscian extends Prostokat{
-    #W = 0;
-    get Wys(){
-        return this.#W;
-    }
-    set Wys(value){
-        return this.#W = value;
-    }
-
-    obliczPole(){
-        return 2 * this.BokA * this.BokB + 2 * this.BokA * this.Wys + 2 * this.BokB * this.Wys;
-    }
-    obliczObjetosc(){
-        return super.obliczPole() * this.Wys;
-    }
-}
-class Ostrosłup extends Prostokat{
-
-    #W = 0;
-    get Wys(){
-        return this.#W;
-    }
-    set Wys(value){
-        return this.#W = value;
-    }
-    obliczPole(){
-        return this.BokA*this.BokB+2*((this.BokA*(Math.sqrt((0.5*this.BokB)**2+this.Wys**2))/2))
-        +2*((this.BokB*(Math.sqrt((0.5*this.BokA)**2 +this.Wys**2))/2))
-    }
-    obliczObjetosc(){
-        return 0.33 * this.Wys * super.obliczPole()
-    }
-}
-
-
+import {Prostokat} from './Prostokat.js';
+import {Prostopadloscian} from './Prostopadloscian.js';
+import {Ostrosłup} from './Ostrosłup.js';
 
 const radio = document.getElementsByName('checkRadio')
 const objetosc  = document.getElementById('objetosc')
 const wysokosc  = document.getElementById('wysokosc')
+const wysokoscText  = document.getElementById('wysokoscText')
 const pole  = document.getElementById('pole')
+
+//Prostokąt
 radio[0].addEventListener('change',()=>{
-    objetosc.disabled = true;
-    wysokosc.disabled = true;
-
+    classAdd(wysokosc,'none')
+    classAdd(wysokoscText,'none')
 })
+//Prostopadłościan
 radio[1].addEventListener('change',()=>{
-    objetosc.disabled = false;
-    wysokosc.disabled = false;
+    classRemove(wysokosc,'none')
+    classRemove(wysokoscText,'none')
 })
+//Ostrosłup
 radio[2].addEventListener('change',()=>{
-    objetosc.disabled = false;
-    wysokosc.disabled = false;
-
+    classRemove(wysokosc,'none')
+    classRemove(wysokoscText,'none')
 })
+
+
+function classRemove (object,className) {
+    return object.classList.remove(`${className}`)
+}
+
+function classAdd (object,className) {
+    return object.classList.add(`${className}`)
+}
 
 const btn = document.getElementById('oblicz')
-
 btn.addEventListener('click',()=>{
     const bokA = document.getElementById('side1')
     const bokB = document.getElementById('side2')
@@ -100,15 +54,34 @@ btn.addEventListener('click',()=>{
 
     
     if(radio[0].checked){
-    pole.value = prostokat.obliczPole()   
+    classRemove(pole,'none');
+    if(isNaN(prostokat.obliczPole())) pole.innerHTML = `Uzupełnij wszystkie pola`;
+    else pole.innerHTML = `Pole: ${prostokat.obliczPole()}`;
     }
     else if(radio[1].checked){
-        pole.value = prostopadloscian.obliczPole();
-        objetosc.value = prostopadloscian.obliczObjetosc();
+        classRemove(pole,'none');
+        classRemove(objetosc,'none');
+        if(isNaN(prostopadloscian.obliczPole()) || isNaN(prostopadloscian.obliczObjetosc())) {
+            pole.innerHTML = `Uzupełnij wszystkie pola`;
+            objetosc.innerHTML = ``;
+        }
+        else{
+        pole.innerHTML = `Pole: ${prostopadloscian.obliczPole()}`
+        objetosc.innerHTML = `Objętość: ${prostopadloscian.obliczObjetosc()}`            
+        }
+
     }
     else if(radio[2].checked){
-        pole.value = ostrosłup.obliczPole();
-        objetosc.value = ostrosłup.obliczObjetosc();
+        classRemove(pole,'none');
+        classRemove(objetosc,'none');
+        if(isNaN(ostrosłup.obliczPole()) || isNaN(ostrosłup.obliczObjetosc())) {
+            pole.innerHTML = `Uzupełnij wszystkie pola`;
+            objetosc.innerHTML = ``;
+        }
+        else{
+        pole.innerHTML = `Pole: ${ostrosłup.obliczPole()}`
+        objetosc.innerHTML = `Objętość: ${ostrosłup.obliczObjetosc()}`            
+        }
     }
 
 

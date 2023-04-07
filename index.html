@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator geometryczny</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="heading">Kalkulator geometryczny</h1>
+
+        <fieldset class="option-container">
+            <legend class="option-container__heading">Wybierz</legend>
+            <div class="radio-container">
+                <input type="radio" name="checkRadio" id="" class="check">   
+                <span>Prostokąt</span>
+            </div>
+            <div class="radio-container">
+                <input type="radio" name="checkRadio" id="" class="check">   
+                <span>Prostopadłościan</span>
+            </div>
+            <div class="radio-container">
+                <input type="radio" name="checkRadio" id="" class="check">   
+                <span>Ostrosłup</span>
+            </div>
+        </fieldset>
+
+        <div class="side-container">
+            <div class="side-container__labels">
+                <label for="side1" class="side-container__label">Bok 1:</label>
+                <label for="side2" class="side-container__label">Bok 2:</label>
+                <label for="height" class="side-container__label" id="wysokoscText">Wysokość: </label>
+            </div>
+            <div class="side-container__inputs">
+                <div class="side-container__item">
+                    <input type="number" name="side1" id="side1" class="side-container__input" required> 
+                </div>    
+                <div class="side-container__item">
+                    <input type="number" name="side2" id="side2" class="side-container__input" required>
+                </div>
+                <div class="side-container__item">
+                    <input type="number" name="height" id="wysokosc" class="side-container__input">
+                </div>
+            </div>
+        </div>
+            <div class="side-container__results">
+                <input type="button" value="Oblicz" id="oblicz" class="btn"> 
+                <span id="pole" class="result none">Pole: </span>
+                <span id="objetosc" class="result none">Objętość:</span>               
+            </div>  
+    </div>
+    <script src="Prostokat.js" type="module"></script>
+    <script src="Prostopadloscian.js" type="module"></script>
+    <script src="Ostrosłup.js" type="module"></script>
+    <script src="index.js" type="module"></script>
+
+</body>
+</html>
