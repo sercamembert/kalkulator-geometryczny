@@ -1,23 +1,10 @@
-export class Prostokat{
-    #A = 0;
-    #B = 0;
+export class Prostokat {
+  constructor(a, b) {
+    this.A = a;
+    this.B = b;
+  }
 
-    get BokA(){
-        return this.#A
-    }
-
-    set BokA(value){
-        this.#A = value;
-    }
-    get BokB(){
-        return this.#B
-    }
-
-    set BokB(value){
-        this.#B = value;
-    }
-
-    obliczPole(){
-        return this.BokA * this.BokB;
-    }
+  obliczPole() {
+    return this.A * this.B;
+  }
 }

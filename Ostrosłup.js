@@ -1,18 +1,18 @@
 import { Prostokat } from "./Prostokat.js";
-export class Ostrosłup extends Prostokat{
+export class Ostrosłup extends Prostokat {
+  constructor(a, b, w) {
+    super(a, b);
+    this.W = w;
+  }
 
-    #W = 0;
-    get Wys(){
-        return this.#W;
-    }
-    set Wys(value){
-        return this.#W = value;
-    }
-    obliczPole(){
-        return this.BokA*this.BokB+2*((this.BokA*(Math.sqrt((0.5*this.BokB)**2+this.Wys**2))/2))
-        +2*((this.BokB*(Math.sqrt((0.5*this.BokA)**2 +this.Wys**2))/2))
-    }
-    obliczObjetosc(){
-        return 0.33 * this.Wys * super.obliczPole()
-    }
+  obliczPole() {
+    return (
+      this.A * this.B +
+      2 * ((this.A * Math.sqrt((0.5 * this.B) ** 2 + this.W ** 2)) / 2) +
+      2 * ((this.B * Math.sqrt((0.5 * this.A) ** 2 + this.W ** 2)) / 2)
+    );
+  }
+  obliczObjetosc() {
+    return 0.33 * this.W * super.obliczPole();
+  }
 }
